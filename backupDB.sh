@@ -20,5 +20,7 @@ PASS1=password db
 tar -cvzf ${FILE1}.tar.gz ${FILE1}
 rm ${FILE1}
 
+echo "Backup successfully completed the `date`" >> /opt/log_backupdb.txt
+
 $ Delete files older that 30 days
  find bkdirectory -mtime +30 -exec rm {} \;
