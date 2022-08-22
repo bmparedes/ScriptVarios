@@ -1,0 +1,18 @@
+- hosts: cluster1
+  tasks:
+    - name: Download node_exporter
+      get_url: url=https://github.com/prometheus/node_exporter/releases/download/v1.4.0-rc.0/node_exporter-1.4.0-rc.0.linux-amd64.tar.gz dest=/tmp/ 
+    - name: Descomprimir
+      action: shell tar xvfz /tmp/node_exporter-1.4.0-rc.0.linux-amd64.tar.gz
+    
+    - template:
+        src: template/node_exporter.service.j2
+        dest: /etc/systemd/system/node_exporter.service
+        owner: root
+        group: root
+        mode: 0644
+
+    - systemd:
+        name: node_exporter
+        state: started
+        enabled: True
