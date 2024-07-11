@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dirección de la página web a verificar
-url="https://sonar.cgtscorp.com/"
+url="https://url"
 
 # Intervalo de verificación en segundos
 interval=30
